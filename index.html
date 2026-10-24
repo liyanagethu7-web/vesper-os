@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VESPER/OS</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<main id="desktop">
+  <div class="wallpaper" aria-hidden="true"></div>
+  <div class="sky" id="sky" aria-hidden="true"><i class="shooting"></i></div>
+  <i class="pixel cloud" data-sprite="cloud" style="--top:4%; --w:80px; --h:24px; --dur:170s; --start:-60s; --rest:18vw" aria-hidden="true"></i>
+  <i class="pixel cloud" data-sprite="cloud" style="--top:10%; --w:100px; --h:30px; --dur:240s; --start:-170s; --rest:70vw" aria-hidden="true"></i>
+
+  <nav class="desk-icons" aria-label="Desktop">
+    <button class="desk-icon" data-open="terminal"><img src="assets/icons/my-documents.png" alt="" width="48" height="48"><span>My Documents</span></button>
+    <button class="desk-icon" data-open="room"><img src="assets/icons/recycle-bin.png" alt="" width="48" height="48"><span>Recycle Bin</span></button>
+    <button class="desk-icon" data-open="sprkls"><i class="icon icon--floppy"></i><span>Downloads</span></button>
+    <button class="desk-icon" data-open="messenger"><i class="icon icon--stack"></i><span>Messenger</span></button>
+    <button class="desk-icon" data-open="web"><i class="icon icon--web"></i><span>Vesper Explorer</span></button>
+    <button class="desk-icon" data-open="tunes"><i class="icon icon--tunes"></i><span>Vesper Tunes</span></button>
+  </nav>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 class="hero__title" id="hero-title"><span class="hero__gradient">WELCOME TO</span><br><span class="hero__gradient">VESPER</span><span class="hero__cursor" aria-hidden="true"></span></h1>
+    <p class="hero__credit">powered by sanush</p>
+  </section>
+
+  <!-- creatures -->
+  <div class="critter critter--ghost" style="--cw:36px; --ch:33px" role="img" aria-label="A tiny ghost">
+    <div class="critter__flip"><i class="pixel" data-sprite="ghost" data-blink="ghostBlink"></i></div>
+    <span class="critter__bubble">boo!</span>
+  </div>
+  <div class="critter critter--star" style="--cw:27px; --ch:21px" role="img" aria-label="A drifting star">
+    <div class="critter__flip"><i class="pixel" data-sprite="star"></i></div>
+    <span class="critter__bubble">make a wish</span>
+  </div>
+  <div class="critter critter--walker" style="--cw:36px; --ch:31px" role="img" aria-label="A little pink blob">
+    <div class="critter__flip"><i class="pixel" data-sprite="cat"></i></div>
+    <span class="critter__bubble">mrrp.</span>
+  </div>
+  <i class="deco deco--planet pixel" data-sprite="planet" aria-hidden="true"></i>
+  <i class="deco deco--butterfly" aria-hidden="true"><i class="pixel" data-sprite="butterfly"></i></i>
+  <i class="deco deco--cassette pixel" data-sprite="cassette" aria-hidden="true"></i>
+  <i class="pixel pet" data-sprite="dog" aria-hidden="true"></i>
+
+  <!-- windows -->
+  <section class="window" id="terminal" data-title="ns-dos" data-icon="window" style="--x:11; --y:4; --w:23; --h:33; min-width:290px; min-height:200px">
+    <div class="window__body terminal scroll" id="terminal-screen">
+      <div>vesper/os 0.98 - link to sparkles.node ... ok</div>
+      <div>It’s a start for another sparky weekend.</div>
+      <div><span class="terminal__who">sparkles✧: </span>hiii!!!</div>
+      <div><span class="terminal__who">sparkles✧: </span>can you guess what the weather’s like outside??</div>
+      <hr>
+      <div>[1]: Oh, tell me!&lt;</div>
+      <div>[2]: Uhm, no?...</div>
+      <div class="terminal__row" id="terminal-row">
+        <span class="terminal__who">[3]:</span>
+        <input id="terminal-input" aria-label="Terminal input" autocomplete="off" spellcheck="false">
+        <i class="terminal__cursor"></i>
+      </div>
+    </div>
+  </section>
+
+  <section class="window window--pink" id="messenger" data-title="messenger service" data-icon="stack" style="--x:11; --y:42; --w:23.5; --h:52; min-width:270px; min-height:310px">
+    <div class="window__body messenger">
+      <div class="messenger__tabs">
+        <button class="btn" data-action="back">back</button>
+        <button class="btn" data-action="profile">profile</button>
+        <button class="btn" data-contact="sparkles">sparkles</button>
+        <button class="btn" data-contact="skrepka">skrepka</button>
+        <button class="btn" data-contact="moth">moth</button>
+      </div>
+      <div class="messenger__main">
+        <div class="messenger__log scroll" id="messenger-log" aria-live="polite"></div>
+        <div class="messenger__side">
+          <button class="btn" data-contact="sparkles" title="sparkles"><i class="pixel" data-sprite="ghost"></i></button>
+          <button class="btn" data-contact="skrepka" title="skrepka"><i class="pixel" data-sprite="cat"></i></button>
+          <button class="btn" data-contact="moth" title="moth"><i class="pixel" data-sprite="dog"></i></button>
+        </div>
+      </div>
+      <form class="messenger__compose" id="messenger-form">
+        <input id="messenger-input" aria-label="Message" placeholder="type a message..." autocomplete="off">
+        <button class="btn" type="submit">send</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="window" id="room" data-title="room.gif" data-icon="window" style="--x:66.5; --y:36; --w:31; --h:46; min-width:300px; min-height:220px">
+    <div class="window__body viewer">
+      <div class="viewer__frame">
+      <svg class="room__scene" viewBox="0 0 160 90" preserveAspectRatio="xMidYMid meet" shape-rendering="crispEdges" role="img" aria-label="Pixel-art bedroom at night">
+      <rect width="160" height="90" fill="#1d2048"/>
+      <rect y="68" width="160" height="22" fill="#2a2563"/>
+      <rect y="66" width="160" height="2" fill="#3b3578"/>
+      <path d="M0 5H160" stroke="#E45CB7" stroke-width="2" stroke-dasharray="2 8"/>
+      <rect x="60" y="10" width="54" height="49" fill="#8e86c9"/>
+      <rect x="64" y="13" width="46" height="42" fill="#3a3d8f"/>
+      <circle cx="92" cy="26" r="13" fill="#C6A5F2" opacity=".25"/>
+      <circle cx="92" cy="26" r="8" fill="#F6EFFF"/>
+      <rect x="66" y="42" width="16" height="4" fill="#C6A5F2"/>
+      <rect x="70" y="39" width="10" height="3" fill="#C6A5F2"/>
+      <rect x="94" y="44" width="14" height="4" fill="#8e86c9"/>
+      <rect x="86" y="13" width="2" height="42" fill="#8e86c9"/>
+      <rect x="58" y="56" width="58" height="3" fill="#8e86c9"/>
+      <rect x="68" y="50" width="6" height="6" fill="#E99ACB"/>
+      <rect x="70" y="46" width="2" height="4" fill="#5fae7a"/>
+      <rect x="100" y="50" width="6" height="6" fill="#C6A5F2"/>
+      <rect x="24" y="14" width="18" height="24" fill="#2f2c6b"/>
+      <rect x="26" y="16" width="14" height="16" fill="#C6A5F2"/>
+      <rect x="26" y="34" width="14" height="2" fill="#E99ACB"/>
+      <rect x="2" y="26" width="18" height="2" fill="#8e86c9"/>
+      <rect x="4" y="20" width="4" height="6" fill="#E99ACB"/>
+      <rect x="11" y="22" width="6" height="4" fill="#C6A5F2"/>
+      <rect x="2" y="42" width="18" height="2" fill="#8e86c9"/>
+      <rect x="5" y="37" width="5" height="5" fill="#F6EFFF"/>
+      <rect x="13" y="38" width="4" height="4" fill="#E45CB7"/>
+      <rect x="119" y="32" width="3" height="24" fill="#3aa5a0"/>
+      <rect x="115" y="46" width="11" height="13" fill="#2f8f8f"/>
+      <rect x="117" y="50" width="3" height="3" fill="#171B3F"/>
+      <rect x="2" y="56" width="46" height="18" fill="#5a4fa8"/>
+      <rect x="2" y="52" width="14" height="8" fill="#F4C7DD"/>
+      <rect x="18" y="58" width="28" height="3" fill="#C6A5F2"/>
+      <rect x="2" y="74" width="3" height="5" fill="#3b3578"/>
+      <rect x="45" y="74" width="3" height="5" fill="#3b3578"/>
+      <rect x="52" y="60" width="22" height="19" fill="#3b3578"/>
+      <rect x="54" y="62" width="18" height="6" fill="#4a4492"/>
+      <rect x="54" y="70" width="18" height="6" fill="#4a4492"/>
+      <rect x="60" y="64" width="6" height="1" fill="#C6A5F2"/>
+      <rect x="104" y="62" width="54" height="3" fill="#8e86c9"/>
+      <rect x="106" y="65" width="3" height="22" fill="#3b3578"/>
+      <rect x="153" y="65" width="3" height="22" fill="#3b3578"/>
+      <rect x="126" y="43" width="20" height="16" fill="#C6C5CD"/>
+      <rect x="128" y="45" width="16" height="11" fill="#5a4fd0"/>
+      <rect x="134" y="59" width="4" height="3" fill="#C6C5CD"/>
+      <rect x="108" y="59" width="12" height="3" fill="#E99ACB"/>
+      <rect x="140" y="66" width="13" height="14" fill="#3b3578"/>
+      </svg>
+      </div>
+      <div class="statusbar"><span>room.gif</span><span>160 × 90 px</span></div>
+    </div>
+  </section>
+
+  <section class="window" id="todo" data-title="Another Day" data-icon="floppy" style="--x:82; --y:4; --w:14.5; --h:28; min-width:160px; min-height:170px">
+    <div class="window__body note">
+      <div class="note__rings"></div>
+      <h2>Another Day</h2>
+      <label><input type="checkbox" checked><span>Wake up</span></label>
+      <label><input type="checkbox" checked><span>Greet Skrepka</span></label>
+      <label><input type="checkbox" checked><span>Clean up the closet</span></label>
+      <label><input type="checkbox"><span>Go to the city</span></label>
+      <div class="note__bar" aria-hidden="true"><i id="todo-bar"></i></div>
+      <div class="note__count" id="todo-count"></div>
+    </div>
+  </section>
+
+  <section class="window" id="sprkls" data-title="sprkls.exe" data-icon="ghost" style="--x:39; --y:66; --w:19; --h:28; min-width:210px; min-height:200px">
+    <div class="window__body stage">
+      <i class="pixel" data-sprite="ghost" data-blink="ghostBlink"></i>
+      <div class="stage__caption">My personal one and only</div>
+    </div>
+    <div class="hearts" id="hearts"></div>
+  </section>
+
+  <!-- browser -->
+  <section class="window is-closed" id="web" data-title="Vesper Explorer" data-icon="web" style="--x:20; --y:8; --w:46; --h:64; min-width:380px; min-height:320px">
+    <div class="window__body browser">
+      <div class="browser__bar">
+        <button class="btn" type="button" disabled>back</button>
+        <button class="btn" type="button" disabled>next</button>
+        <button class="btn" type="button">reload</button>
+        <button class="btn" type="button">home</button>
+      </div>
+      <div class="browser__address">
+        <label for="web-url">Address</label>
+        <input id="web-url" value="vesper://home" spellcheck="false">
+        <button class="btn" type="button">Go</button>
+      </div>
+      <div class="browser__favs">
+        <span class="browser__label">favorites</span>
+        <div class="browser__favs-list">
+          <button class="btn" type="button">Wikipedia</button>
+          <button class="btn" type="button">Wiby</button>
+          <button class="btn" type="button">Neocities</button>
+          <button class="btn" type="button">Internet Archive</button>
+          <button class="btn" type="button">Pixel Joint</button>
+        </div>
+      </div>
+      <div class="browser__view">
+        <div class="browser__page">
+          <h2>VESPER EXPLORER</h2>
+          <div class="browser__search">
+            <input aria-label="Search" placeholder="search the web..." autocomplete="off">
+            <button class="btn" type="button">Search</button>
+          </div>
+          <h3>Bookmarks</h3>
+          <div class="browser__links">
+            <button class="btn" type="button">Wikipedia</button>
+            <button class="btn" type="button">Wiby</button>
+            <button class="btn" type="button">Neocities</button>
+            <button class="btn" type="button">Internet Archive</button>
+            <button class="btn" type="button">Pixel Joint</button>
+          </div>
+        </div>
+      </div>
+      <div class="statusbar"><span>Done</span></div>
+    </div>
+  </section>
+
+  <!-- music player -->
+  <section class="window is-closed" id="tunes" data-title="Vesper Tunes" data-icon="tunes" style="--x:56; --y:40; --w:22; --h:52; min-width:290px; min-height:340px">
+    <div class="window__body player">
+      <div class="player__deck">
+        <div class="player__art" id="tunes-art"><i class="pixel" data-sprite="cassette"></i></div>
+        <div class="player__info">
+          <div class="player__title" id="tunes-title">No track loaded</div>
+          <div class="player__artist" id="tunes-artist">&nbsp;</div>
+          <div class="player__time"><span id="tunes-current">0:00</span> / <span id="tunes-total">0:00</span></div>
+        </div>
+      </div>
+      <input class="slider" id="tunes-seek" type="range" min="0" max="1000" value="0" aria-label="Seek" disabled>
+      <div class="player__controls">
+        <button class="btn" data-tunes="prev" title="Previous track">prev</button>
+        <button class="btn" data-tunes="play" id="tunes-play" title="Play / pause">play</button>
+        <button class="btn" data-tunes="next" title="Next track">next</button>
+        <label class="player__volume">vol <input class="slider" id="tunes-volume" type="range" min="0" max="100" value="60" aria-label="Volume"></label>
+      </div>
+      <div class="player__listbar">
+        <button class="btn" id="tunes-list-toggle" aria-expanded="true" aria-controls="tunes-list">playlist</button>
+        <span id="tunes-note" role="status"></span>
+      </div>
+      <ul class="player__list scroll" id="tunes-list"></ul>
+      <audio id="tunes-audio" preload="none"></audio>
+    </div>
+  </section>
+</main>
+
+<nav class="start-menu" id="start-menu" aria-label="Start menu">
+  <button data-open="terminal"><i class="icon icon--window"></i>ns-dos</button>
+  <button data-open="messenger"><i class="icon icon--stack"></i>Messenger</button>
+  <button data-open="room"><i class="icon icon--window"></i>room.gif</button>
+  <button data-open="sprkls"><i class="icon icon--floppy"></i>sprkls.exe</button>
+  <button data-open="todo"><i class="icon icon--window"></i>Another Day</button>
+  <button data-open="web"><i class="icon icon--web"></i>Vesper Explorer</button>
+  <button data-open="tunes"><i class="icon icon--tunes"></i>Vesper Tunes</button>
+  <hr>
+  <button data-action="show-desktop"><i class="pixel" data-sprite="desktop"></i>Show desktop</button>
+  <button data-action="restart"><i class="icon" aria-hidden="true"></i>Restart VESPER/OS</button>
+</nav>
+
+<footer class="taskbar">
+  <button class="btn taskbar__start" id="start-button" aria-haspopup="true"><i class="pixel" data-sprite="logo"></i><span>Start</span></button>
+  <i class="taskbar__sep" aria-hidden="true"></i>
+  <button class="btn taskbar__quick" id="show-desktop" title="Show desktop" aria-label="Show desktop"><i class="pixel" data-sprite="desktop"></i></button>
+  <i class="taskbar__sep" aria-hidden="true"></i>
+  <div class="taskbar__tasks" id="tasks"></div>
+  <div class="taskbar__tray">
+    <button class="taskbar__mail" id="tray-mail" title="Messenger" aria-label="Open messenger"><i class="pixel" data-sprite="mail"></i></button>
+    <i class="taskbar__sep" aria-hidden="true"></i>
+    <time id="clock"></time>
+  </div>
+</footer>
+
+<div class="crt" aria-hidden="true"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
